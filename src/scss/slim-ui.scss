@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+@import 'config/breakpoints';
+@import 'config/variables';
+
+@import 'mixins/devices-mq';
+@import 'mixins/dimensions-mq';
+
+@import 'base/ui';
+@import 'container/ui';
+@import 'menubar/ui';
+@import 'toolbar/ui';
+@import 'sidebar/ui';
+@import 'breadcrumb/ui';
+@import 'login/ui';
+@import 'panel/ui';
+@import 'field/ui';
+@import 'button/ui';
+@import 'table/ui';
+@import 'range/ui';
+@import 'page-footer/ui';
+
+.field-equal-sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  width: 38px;
+  height: 24px;
+  color: $secondary-color;
+  background-color: $color-white-darker;
+  border-radius: 4px;
+}

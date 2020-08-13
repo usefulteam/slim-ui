@@ -1,0 +1,461 @@
+@charset "utf-8";
+
+.fields {
+	margin-bottom: 15px;
+	align-items: center;
+
+	&.has-top-valign {
+		align-items: flex-start;
+	}
+
+	&.has-bottom-valign {
+		align-items: flex-end;
+	}
+}
+
+.fields {
+	&.has-2 {
+		.field {
+			margin-bottom: 0;
+			width: 50%;
+
+			&:first-child {
+				padding-right: 30px;
+			}
+
+			&:last-child {
+				padding-left: 30px;
+			}
+		}
+	}
+
+	&.has-3 {
+		.field {
+			margin-bottom: 0;
+			width: 33%;
+
+			&:first-child {
+				padding-right: 10px;
+			}
+
+			&:nth-child(2) {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+
+			&:last-child {
+				padding-left: 10px;
+			}
+		}
+	}
+
+	&.has-4 {
+		.field {
+			margin-bottom: 0;
+			width: 25%;
+			padding-left: 10px;
+			padding-right: 10px;
+
+			&:first-child {
+				padding-left: 0;
+				padding-right: 10px;
+			}
+
+			&:last-child {
+				padding-left: 10px;
+				padding-right: 0;
+			}
+		}
+	}
+
+	&.has-many {
+		.field {
+			margin-bottom: 0;
+			padding-left: 10px;
+			padding-right: 10px;
+
+			&:first-child {
+				padding-left: 0;
+				padding-right: 10px;
+			}
+
+			&:last-child {
+				margin-left: auto;
+				padding-right: 0;
+				padding-left: 10px;
+			}
+		}
+	}
+
+	&.has-many,
+	&.has-2,
+	&.has-3,
+	&.has-4 {
+		display: flex;
+		flex-wrap: wrap;
+
+		@include sm-down {
+			.field {
+				margin-bottom: 15px;
+				width: 100%;
+
+				&:first-child {
+					padding-right: 0;
+				}
+
+				&:last-child {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+}
+
+.fields .field:last-child {
+	margin-bottom: 0;
+}
+
+.fields .field {
+	margin-bottom: 15px;
+}
+
+.field {
+	position: relative;
+
+	.multi-wrapper {
+		position: relative;
+		top: 20px;
+	}
+
+	&.has-prefix {
+		.input {
+			padding-left: 45px;
+		}
+	}
+
+	&.has-suffix {
+		.input {
+			padding-right: 45px;
+		}
+	}
+
+	.prefix,
+	.suffix {
+		position: absolute;
+		font-size: 12px;
+		color: $secondary-color;
+		text-align: center;
+		background-color: $color-white-darker;
+		border-radius: 4px;
+	}
+
+	.prefix {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 24px;
+		left: 0;
+		bottom: 5px;
+	}
+
+	.suffix {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 24px;
+		right: 0;
+		bottom: 5px;
+	}
+
+	.suffix-dropdown {
+		bottom: 5px;
+		border: 0;
+	}
+}
+
+.field {
+	.control {
+		position: relative;
+	}
+
+	.awesomplete {
+		display: block;
+		width: 100%;
+
+		> ul {
+			margin-top: 7px;
+			z-index: 5; // Should be on top of field's hr.
+
+			> li {
+				padding: 10px 12px;
+			}
+		}
+	}
+}
+
+.field > label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.input {
+	font-family: inherit;
+}
+
+.input {
+	width: 100%;
+}
+
+.material {
+	.input {
+		box-sizing: border-box;
+		padding: 15px 0 5px;
+		background-color: transparent;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		border-bottom: 1px solid #ddd;
+		font-size: 110%;
+		outline: none;
+		cursor: text;
+
+		&::-webkit-input-placeholder,
+		&::placeholder {
+			transition: color 300ms ease;
+		}
+		&:not(:focus)::-webkit-input-placeholder,
+		&:not(:focus)::placeholder {
+			color: transparent;
+		}
+	}
+
+	.select,
+	.use-timepicker,
+	.use-datepicker,
+	.use-daterangepicker {
+		cursor: pointer;
+	}
+
+	.textarea ~ hr {
+		bottom: 6px;
+	}
+
+	hr {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 2px;
+		border: none;
+		background: $secondary-color;
+		font-size: 1px;
+		will-change: transform, visibility;
+		transition: all 200ms ease-out;
+		transform: scaleX(0);
+		visibility: hidden;
+		z-index: 3;
+	}
+
+	.multi-wrapper ~ hr {
+		bottom: -20px;
+	}
+
+	.input:focus ~ hr,
+	.input.is-filled ~ hr,
+	.awesomplete.is-filled ~ hr,
+	.input.is-mobile-picker ~ hr {
+		transform: scaleX(1);
+		visibility: visible;
+	}
+
+	.control label {
+		position: absolute;
+		top: 18px;
+		left: 0;
+		font-size: 110%;
+		color: #607d8b;
+		transform-origin: 0 -450%;
+		transition: transform 300ms ease;
+		pointer-events: none;
+	}
+
+	.has-prefix .control label {
+		left: 45px;
+	}
+
+	.input:focus ~ label,
+	.input:valid ~ label,
+	.input.is-filled ~ label,
+	.awesomplete.is-filled ~ label,
+	.multi-wrapper ~ label,
+	.input.is-mobile-picker ~ label {
+		transform: scale(0.8);
+	}
+}
+
+/**
+ * ------------------------------
+ * Copied & modified from https://codepen.io/KenanYusuf/pen/PZKEKd/
+ * ------------------------------
+ */
+.field {
+	.label {
+		position: relative;
+		top: auto;
+		display: block;
+		line-height: 1.5;
+		text-align: left;
+		cursor: pointer;
+		z-index: 1;
+
+		&:hover input ~ .indicator,
+		input:focus ~ .indicator {
+			background-color: #ccc;
+		}
+
+		input {
+			position: absolute;
+			z-index: -1;
+			opacity: 0;
+		}
+
+		.indicator {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 20px;
+			width: 20px;
+			border-radius: 4px;
+			background-color: #e6e6e6;
+			-webkit-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+		}
+
+		input:checked ~ .indicator {
+			background-color: $secondary-color;
+		}
+
+		&:hover input:not([disabled]):checked ~ .indicator,
+		input:checked:focus ~ .indicator {
+			background-color: $secondary-accent-color;
+		}
+
+		input:disabled ~ .indicator {
+			background-color: #e6e6e6;
+			opacity: 0.6;
+			pointer-events: none;
+		}
+
+		.indicator::after {
+			display: none;
+			position: absolute;
+			content: "";
+		}
+
+		input:checked ~ .indicator::after {
+			display: block;
+		}
+	}
+
+	.checkbox-label {
+		padding-left: 30px;
+
+		.indicator::after {
+			left: 8px;
+			top: 4px;
+			width: 3px;
+			height: 8px;
+			border: solid #fff;
+			border-width: 0 2px 2px 0;
+			transform: rotate(45deg);
+		}
+
+		input:disabled ~ .indicator::after {
+			border-color: #7b7b7b;
+		}
+	}
+
+	.radio-label {
+		padding-left: 30px;
+
+		.indicator {
+			border-radius: 50%;
+		}
+
+		.indicator::after {
+			left: 7px;
+			top: 7px;
+			height: 6px;
+			width: 6px;
+			border-radius: 50%;
+			background-color: #fff;
+		}
+
+		input:disabled ~ .indicator::after {
+			background-color: #7b7b7b;
+		}
+	}
+
+	.select-label {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+
+		select {
+			display: inline-block;
+			width: 100%;
+			cursor: pointer;
+			padding: 10px 15px;
+			outline: 0;
+			border: 0;
+			border-radius: 0;
+			background-color: #e6e6e6;
+			color: #7b7b7b;
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+		}
+
+		select::-ms-expand {
+			display: none;
+		}
+
+		select:hover,
+		select:focus {
+			color: #000;
+			background-color: #ccc;
+		}
+
+		select:disabled {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		.arrow {
+			position: absolute;
+			top: 16px;
+			right: 15px;
+			width: 0;
+			height: 0;
+			pointer-events: none;
+			border-style: solid;
+			border-width: 8px 5px 0 5px;
+			border-color: #7b7b7b transparent transparent transparent;
+		}
+
+		select:hover ~ .arrow,
+		select:focus ~ .arrow {
+			border-top-color: #000;
+		}
+
+		select:disabled ~ .arrow {
+			border-top-color: #ccc;
+		}
+	}
+}

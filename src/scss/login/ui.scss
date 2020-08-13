@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+.login-page {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0 40px;
+	width: 100%;
+	min-height: 100%;
+  background-color: $primary-color-alt;
+  
+  @include mobile-down {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.login-box {
+	display: flex;
+	align-items: center;
+  flex-wrap: wrap;
+	width: 100%;
+	max-width: 1000px;
+	border-radius: 15px;
+	background-color: $color-white;
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+
+  @include mobile-down {
+    border-radius: 0;
+  }
+
+	.left-section,
+	.right-section {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+    width: 50%;
+
+		@include mobile-down {
+			width: 100%;
+		}
+  }
+  
+  .illustration-section {
+    background-color: #E6F2FF;
+    background-image: url(../images/undraw_data_trends_b0wg.svg);
+    background-image: url(../images/undraw_Data_points_ubvs.svg);
+    background-repeat: no-repeat;
+    background-size: 90% auto;
+    background-position: 80% 75%;
+    min-height: 450px;
+
+    @include mobile-down {
+      min-height: 350px;
+    }
+  }
+}
+
+.login-form {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 60%;
+  text-align: center;
+
+  @include tablet-down {
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%;
+  }
+
+  .logo-link {
+    display: inline-block;
+  }
+
+  h1 {
+    font-weight: 600;
+  }
+
+  .logo {
+    max-width: 60%;
+  }
+}

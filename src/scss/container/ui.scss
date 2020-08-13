@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+.container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &.is-full {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include from-md {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &.is-full {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &.is-small {
+      max-width: 70%;
+    }
+  }
+
+  @include from-lg {
+    max-width: 1200px;
+
+    &.is-full {
+      max-width: 100%;
+    }
+
+    &.is-fluid {
+      padding-left: 35px;
+      padding-right: 35px;
+      max-width: 100%;
+    }
+
+    &.is-small {
+      max-width: 60%;
+    }
+  }
+}

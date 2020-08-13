@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+.buttons {
+  .button {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.button {
+  padding: 0 25px;
+  height: 40px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  color: $secondary-color;
+  background-color: #eeeeee;
+  border-width: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .35s ease-in-out;
+
+  &.is-full {
+    width: 100%;
+  }
+
+  &.is-oval {
+    border-radius: 20px;
+  }
+
+  &.is-rounded {
+    padding-left: 0;
+    padding-right: 0;
+    width: 40px;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    color: $color-white;
+    background-color: $secondary-color;
+  }
+
+  &.is-primary {
+    color: $color-white;
+    background-color: $primary-color;
+
+    &:hover {
+      background-color: $primary-accent-color;
+    }
+  }
+
+  &.is-secondary {
+    color: $color-white;
+    background-color: $secondary-color;
+
+    &:hover {
+      background-color: $secondary-accent-color;
+    }
+  }
+
+  &.is-small {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 30px;
+    font-size: 12px;
+
+    &.is-rounded {
+      padding-left: 0;
+      padding-right: 0;
+      width: 30px;
+    }
+  }
+
+  @include phone-only {
+    width: 100%;
+  }
+}
