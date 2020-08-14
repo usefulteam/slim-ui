@@ -25,14 +25,14 @@ a {
   position: fixed;
   left: 0;
   top: 0;
-  width: 250px;
+  width: $sidebar-width;
   height: 100%;
   z-index: 5;
 }
 
 .right-layout {
   position: relative;
-  padding-left: 250px;
+  padding-left: $sidebar-width;
 }
 
 .main-screen {
@@ -54,6 +54,10 @@ a {
   font-weight: 600;
   color: $title-color;
   text-transform: uppercase;
+}
+
+.simplebar-scrollbar::before {
+  background-color: $primary-color-alt;
 }
 
 @include mobile-down {

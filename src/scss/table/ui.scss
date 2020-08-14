@@ -3,3 +3,54 @@
 .grid-table {
   margin-top: 40px;
 }
+
+.table {
+	.thead {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		color: $title-color;
+		font-weight: 600;
+
+		.row {
+			height: 70px;
+			background-color: $color-white-alt;
+		}
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		padding-left: 20px;
+		padding-right: 20px;
+		width: 100%;
+	}
+
+	.col:last-child {
+		margin-left: 0;
+	}
+
+	.tbody {
+		.row {
+			height: 60px;
+
+			&:nth-child(even) {
+				background-color: $color-white-alt;
+			}
+		}
+	}
+
+	.action-buttons {
+		justify-content: flex-end;
+	}
+
+	.delete-button {
+		color: $color-red;
+
+		&:hover {
+			color: $color-white;
+			background-color: $color-red;
+		}
+	}
+}

@@ -10,17 +10,18 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/awesomplete@1.1.5/awesomplete.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">
 	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
 	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/usefulteam/columns@1.0.0/dist/columns.min.css">
 	<link rel="stylesheet" href="assets/css/slim-ui.min.css">
 </head>
 
-<body spellcheck="false">
+<body spellcheck="false" class="use-sidebar">
 
 	<div id="app">
 		<div class="left-layout">
-			<div class="sidebar">
+			<div class="sidebar" data-simplebar>
 				<div class="logo-area">
 					<a href="" class="logo-link">
 						<img src="assets/images/sample-logo.png" alt="Logo" class="logo">
@@ -30,7 +31,7 @@
 				<nav class="sidenav">
 					<h3 class="sidemenu-title">MAIN</h3>
 					<ul class="sidemenu">
-						<li class="has-submenu">
+						<li class="has-submenu is-active">
 							<a href="">
 								<span class="icon">
 									<i class="fas fa-home"></i>
@@ -41,7 +42,7 @@
 								</span>
 							</a>
 							<ul class="submenu">
-								<li>
+								<li class="is-active">
 									<a href="">
 										Lihat Semua
 									</a>
@@ -89,13 +90,103 @@
 					</ul>
 
 					<h3 class="sidemenu-title">DAFTAR SURVEY</h3>
+
+					<ul class="sidemenu">
+						<li class="has-submenu">
+							<a href="">
+								<span class="icon">
+									<i class="fas fa-pen"></i>
+								</span>
+								Survey Pemilihan Bupati Kabupaten Sleman
+								<span class="arrow">
+									<i class="fas fa-angle-down"></i>
+								</span>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="">
+										Data Responden
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Tambah Responden
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Hasil Survey
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Surveyor
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="has-submenu">
+							<a href="">
+								<span class="icon">
+									<i class="fas fa-pen"></i>
+								</span>
+								Survey Pemilihan Bupati Pati
+								<span class="arrow">
+									<i class="fas fa-angle-down"></i>
+								</span>
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="">
+										Data Responden
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Tambah Responden
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Hasil Survey
+									</a>
+								</li>
+								<li>
+									<a href="">
+										Surveyor
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<h3 class="sidemenu-title">PINTASAN</h3>
+					<ul class="sidemenu">
+						<li>
+							<a href="">
+								<span class="icon">
+									<i class="fas fa-sign-out-alt"></i>
+								</span>
+								Logout
+							</a>
+						</li>
+					</ul>
 				</nav>
 			</div>
 		</div>
 		<div class="right-layout">
 			<div class="topbar">
 				<div class="toolbar">
-					//
+					<div class="left-toolbar">
+						&nbsp;
+					</div>
+					<div class="right-toolbar">
+						<div class="toolbar-item toolbar-avatar">
+							<img src="assets/images/sample-avatar.png" alt="avatar" class="avatar">
+							<span>
+								Hai Bagus
+							</span>
+						</div><!-- .toolbar-item -->
+					</div>
 				</div>
 			</div>
 			<div class="main-screen">
@@ -103,19 +194,13 @@
 
 					<div class="columns titlebar">
 						<div class="column w50 left-titlebar">
-							<h2 class="page-title">Tambah Jadwal Payroll</h2>
+							<h2 class="page-title">Survey</h2>
 						</div>
 						<div class="column w50 right-titlebar">
 							<nav class="breadcrumb">
 								<ul>
-									<li>
-										<a href="">Payroll</a>
-									</li>
-									<li>
-										<a href="">Jadwal</a>
-									</li>
 									<li class="is-active">
-										<span>Tambah</span>
+										<span>Survey</span>
 									</li>
 								</ul>
 							</nav>
@@ -125,116 +210,97 @@
 					<div class="main-content">
 						<form name="tambah_jadwal_payroll" action="simpanJadwalPayroll" method="POST">
 							<div class="panel">
-								<header class="panel-header">
+								<header class="panel-header has-no-border">
 									<h3 class="panel-title">
-										Input Jadwal Payroll
+										Daftar Survey
 									</h3>
 								</header>
-								<div class="panel-content">
+								<div class="panel-content is-gapless">
 
-									<div class="fields material has-2">
-										<div class="field">
-											<div class="control">
-												<input type="text" name="tgl_input_jadwal" id="tgl_input_jadwal"
-													class="input use-datepicker" placeholder="Tanggal Input Jadwal"
-													value="" autocomplete="off" required>
-												<hr>
-												<label for="tgl_input_jadwal">Tanggal Input</label>
+									<div class="table">
+										<header class="thead">
+											<div class="row">
+												<div class="col w40">
+													Judul Survey
+												</div>
+												<div class="col w10">
+													Target Responden
+												</div>
+												<div class="col w10">
+													Progress
+												</div>
+												<div class="col w15">
+													Tanggal Mulai
+												</div>
+												<div class="col w15">
+													Tanggal Selesai
+												</div>
+												<div class="col w10">
+													&nbsp;
+												</div>
+											</div>
+										</header>
+										<div class="tbody">
+											<div class="row">
+												<div class="col w40">
+													Survey Pemilihan Bupati Kabupaten Sleman
+												</div>
+												<div class="col w10">
+													1500
+												</div>
+												<div class="col w10">
+													10%
+												</div>
+												<div class="col w15">
+													10 Agustus 2020
+												</div>
+												<div class="col w15">
+													10 September 2020
+												</div>
+												<div class="col w10">
+													<div class="buttons action-buttons">
+														<a href="" class="button is-small is-rounded">
+															<i class="far fa-edit"></i>
+														</a>
+														<a href="" class="button is-small is-rounded delete-button">
+															<i class="far fa-trash-alt"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col w40">
+													Survey Pemilihan Bupati Pati
+												</div>
+												<div class="col w10">
+													1200
+												</div>
+												<div class="col w10">
+													15%
+												</div>
+												<div class="col w15">
+													8 Agustus 2020
+												</div>
+												<div class="col w15">
+													5 September 2020
+												</div>
+												<div class="col w10">
+													<div class="buttons action-buttons">
+														<a href="" class="button is-small is-rounded">
+															<i class="far fa-edit"></i>
+														</a>
+														<a href="" class="button is-small is-rounded delete-button">
+															<i class="far fa-trash-alt"></i>
+														</a>
+													</div>
+												</div>
 											</div>
 										</div>
-
-										<div class="field">
-											<div class="control">
-												<input type="text" name="no_jadwal" id="no_jadwal" class="input"
-													value="" placeholder="" autocomplete="off" required readonly>
-												<hr>
-												<label for="no_jadwal">Nomor Jadwal</label>
-											</div>
-										</div>
+										<footer class="tfoot">
+											&nbsp;
+										</footer>
 									</div>
-
-									<div class="fields material has-2">
-
-										<div class="field">
-											<div class="control">
-												<input type="text" name="nama_karyawan" id="nama_karyawan"
-													class="input use-autocomplete" placeholder="Nama Karyawan"
-													autocomplete="off"
-													data-ajax-url="http://<dtml-var BASE0>/api/connAutoCom?col1=namabarang&col2=kodebarang&tb1=pegawai"
-													data-use-array-of="object" data-store-value-to="kode_karyawan"
-													data-minchars="1" required>
-												<hr>
-												<label for="nama_karyawan">Nama Karyawan</label>
-											</div>
-										</div>
-
-										<div class="field">
-											<div class="control">
-												<input type="text" name="kode_karyawan" id="kode_karyawan"
-													class="input use-autocomplete" placeholder="Kode Karyawan"
-													autocomplete="off"
-													data-ajax-url="http://<dtml-var BASE0>/api/connAutoCom?col1=namabarang&col2=kodebarang&tb1=pegawai&by=kode"
-													data-use-array-of="object" data-store-value-to="nama_karyawan"
-													data-minchars="1" data-by="kode" required>
-												<hr>
-												<label for="kode_karyawan">Kode Karyawan</label>
-											</div>
-										</div>
-
-									</div>
-
-									<div class="fields material has-2">
-
-										<div class="field">
-											<div class="control">
-												<input type="text" id="tgl_jadwal" name="tgl_jadwal"
-													class="input use-datepicker" placeholder="Tanggal Jadwal"
-													autocomplete="off" required>
-												<hr>
-												<label for="tgl_jadwal">Tanggal Jadwal</label>
-											</div>
-										</div>
-
-										<div class="field">
-											<div class="control">
-												<!-- Yang disimpan ke database yag "shift_jadwal" -->
-												<input type="hidden" name="shift_jadwal" id="shift_jadwal">
-												<input type="text" name="shift_autocomplete" id="shift_autocomplete"
-													class="input use-autocomplete" data-store-value-to="shift_jadwal"
-													data-minchars="1" data-use-array-of="object"
-													placeholder="Pilih Shift" autocomplete="off"
-													data-ajax-url="http://<dtml-var BASE0>/api/getDaftarShift?col1=nomornotabeli&col2=cb&tb1=daftarshift"
-													required>
-												<hr>
-												<label for="shift_autocomplete">Shift Jadwal</label>
-											</div>
-										</div>
-
-									</div>
-
-									<div class="fields material">
-
-										<div class="field">
-											<div class="control">
-												<textarea name="keterangan" id="keterangan" class="input textarea"
-													placeholder="Keterangan" autocomplete="off" required></textarea>
-												<hr>
-												<label for="keterangan">Keterangan</label>
-											</div>
-										</div>
-
-									</div>
-									<div class="fields">
-										<div class="field">
-											<div class="control has-text-centered">
-												<button type="button" id="btn_add"
-													class="button is-secondary add-button">Tambahkan
-													Jadwal</button>
-											</div>
-										</div>
-									</div>
-									<div id="tabel_input_jadwal" class="ag-theme-alpine"
-										style="width: 100%; height: 300px;"></div>
+									
 								</div>
 
 							</div>
@@ -252,7 +318,7 @@
 						<a href="">Settings</a>
 					</li>
 					<li>
-						<a href="">Master Data</a>
+						<a href="">Bantuan</a>
 					</li>
 				</ul>
 			</div><!-- .container -->
@@ -262,6 +328,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.3/dist/flatpickr.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/awesomplete@1.1.5/awesomplete.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
 	<script src="https://unpkg.com/ag-grid-community@23.1.0/dist/ag-grid-community.min.noStyle.js"></script>
 	<script src="assets/js/slim-ui.min.js"></script>
 	<!-- <script src="assets/js/input-jadwal.min.js"></script> -->

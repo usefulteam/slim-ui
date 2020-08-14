@@ -1,6 +1,10 @@
 @charset "utf-8";
 
 .buttons {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+
   .button {
     margin-right: 10px;
 
@@ -8,6 +12,13 @@
       margin-right: 0;
     }
   }
+}
+
+a.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
 }
 
 .button {
@@ -59,7 +70,7 @@
     &:hover {
       background-color: $secondary-accent-color;
     }
-  }
+	}
 
   &.is-small {
     padding-left: 15px;

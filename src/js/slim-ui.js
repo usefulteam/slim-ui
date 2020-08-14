@@ -43,16 +43,17 @@ var Slim = (function () {
 			const submenu = link.parentNode.querySelector('.submenu');
 			if (!submenu) return;
 
+			if (link.parentNode.classList.contains('is-active')) {
+				slideDown(submenu);
+			}
+
 			link.addEventListener('click', function (e) {
 				e.preventDefault();
 
 				if (link.parentNode.classList.contains('is-active')) {
 					// Slide up.
-					slideUp(submenu, {
-						transitionend: () => {
-							link.parentNode.classList.remove('is-active');
-						}
-					});
+					slideUp(submenu);
+					link.parentNode.classList.remove('is-active');
 				} else {
 					// Slide down.
 					link.parentNode.classList.add("is-active");
@@ -65,12 +66,14 @@ var Slim = (function () {
 	function slideUp(el, opts) {
 		el.style.height = '0px';
 
-		el.addEventListener('transitionend', () => {
-			if (opts && opts.transitionend) opts.transitionend();
-		}, { once: true });
+		if (opts && opts.transitionend) {
+			el.addEventListener('transitionend', () => {
+				opts.transitionend();
+			}, { once: true });
+		}
 	}
 
-	function slideDown(el) {
+	function slideDown(el, opts) {
 		const oriStyle = window.getComputedStyle(el);
 		let ori = {};
 
@@ -101,6 +104,12 @@ var Slim = (function () {
 		setTimeout(() => {
 			el.style.height = height + 'px';
 		}, 0);
+
+		if (opts && opts.transitionend) {
+			el.addEventListener('transitionend', () => {
+				opts.transitionend();
+			}, { once: true });
+		}
 	}
 
 	function setupSubmenus() {

@@ -1,5 +1,11 @@
 @charset "utf-8";
 
+.use-sidebar {
+	.page-footer {
+		padding-left: $sidebar-width;
+	}
+}
+
 .page-footer {
   position: relative;
   left: 0;
@@ -48,7 +54,7 @@
 
     &:hover {
       color: $secondary-color;
-      background-color: #eeeeee;
+      background-color: $color-white-darker;
     }
   }
 }

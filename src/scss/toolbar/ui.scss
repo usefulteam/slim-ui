@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding-left: 250px;
+  padding-left: $sidebar-width;
   width: 100%;
   z-index: 4;
 }
@@ -26,7 +26,7 @@
 
 .right-toolbar {
   display: flex;
-  flex-direction: row-reverse;
+  margin-left: auto;
 }
 
 .toolbar-item {
